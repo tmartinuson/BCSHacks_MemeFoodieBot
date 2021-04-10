@@ -1,6 +1,6 @@
 import tweepy
 import time
-
+from googlesearch import search
 CONSUMER_KEY = 'Z21yF4w1lrcTj4gL042ypnpYX'
 CONSUMER_SECRET = 'XmmVZPseQGMENqqvaLe0Teqjnov8UUryHSosxv77XV41QhyMH2'
 ACCESS_KEY = '1380934327869968388-We48AbT8z7CkZKldO0p2n7H4xbYCL1'
@@ -29,18 +29,7 @@ def handle_mention(mention_object):
 
     #TODO Query google using test string from the mention object and store the restaurant url as a string (for now, we have to see how twitter handles restaurant retweets)
     # query
-
-    try:
-        from googlesearch import search
-    except ImportError:
-        print("No module named 'google' found")
-
-
-    query = "Ice cream Vancouver"
-
-    for j in search(query, tld="co.in", num=10, stop=10, pause=2):
-        print(j)
-
+    # check the foodieSearcherFile
 
     #TODO Call twitter_API to reply to the mention handle with the URL of the restaurant
     ## FORMAT: @'mentioneehandle' https://www.somerestaurant.com
