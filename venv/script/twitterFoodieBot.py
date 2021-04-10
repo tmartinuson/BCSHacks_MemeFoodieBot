@@ -14,36 +14,30 @@ print("Authcodes approved!")
 twitter_API = tweepy.API(auth)
 
 def mention_followers():
+    #Guide function for mentionee's handle name
     followers = twitter_API.followers()
     for follower in followers:
         twitter_API.update_status('Hello @' + follower.screen_name)
 
-#twitter_API.update_status('Hello World')
 
-def get_memes(query, count):
-    tweets = []
-    fetch_tweets = twitter_API.search(query,count)
+def handle_mention(mention_object):
+    #TODO Pull the text from the mention_object and store it into a string to be used for a google query
 
-    for tweet in fetch_tweets:
-        tweet
+    #TODO Query google using test string from the mention object and store the restaurant url as a string (for now, we have to see how twitter handles restaurant retweets)
 
+    #TODO Call twitter_API to reply to the mention handle with the URL of the restaurant
+    ## FORMAT: @'mentioneehandle' https://www.somerestaurant.com
 
-def handle_mention_food():
-    #TODO Handle when someone tweets the bot with a meme and reply with a food recommendation
-    return
-
-def handle_mention_meme():
-    #TODO Handle when someone tweets the both with a food item and reply with a meme
+    #Possible TODO - reply with a screen shot of the google query
     return
 
 while True:
-    new_mentions = twitter_API.mentions_timeline(20)
-    if(len(new_mentions) > 0):
-        time.sleep(1)
-        # TODO if food
-        #   handle_mention_food
-        # TODO if meme
-        #   handle_mention_meme
+    mentions = twitter_API.mentions_timeline(20)
+    if (len(new_mentions) > 0):
+        for mention in mentions:
+            #TODO check to see if we have already replied to this mention (Don't want to reply to the same user multiple times)
+            handle_mention_food()
+
     time.sleep(120)
 
 
