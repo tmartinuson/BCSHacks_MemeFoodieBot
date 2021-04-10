@@ -23,6 +23,8 @@ def mention_followers():
 def handle_mention(mention_object):
     #TODO Pull the text from the mention_object and store it into a string to be used for a google query
 
+
+
     #TODO Query google using test string from the mention object and store the restaurant url as a string (for now, we have to see how twitter handles restaurant retweets)
 
     #TODO Call twitter_API to reply to the mention handle with the URL of the restaurant
