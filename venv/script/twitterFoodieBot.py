@@ -55,7 +55,6 @@ def handle_mention(mention_object):
     #print(user)
     #print(best_tweet_of_user)
 
-
     #TODO Call twitter_API to reply to the mention handle with the URL of the restaurant
     ## FORMAT: @'mentioneehandle' https://www.somerestaurant.com
 
