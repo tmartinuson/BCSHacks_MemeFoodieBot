@@ -23,10 +23,7 @@ def mention_followers():
 
 def handle_mention(mention_object):
     #TODO Pull the text from the mention_object and store it into a string to be used for a google query
-    api = tweepy.API(auth)
-    id = mention_object.id
-    status = api.get_status(id)
-    query = mention_object.text[15:] + " " + str(status.place)
+    query = mention_object.text[15:]
     print(query)
 
 
@@ -39,7 +36,7 @@ def handle_mention(mention_object):
     except ImportError:
         print("No module named 'google' found")
 
-    query = query + "Twitter"
+    query = query + " Twitter food"
 
     restaurant_twitter_handle = ""
     restaurant_url = ""
@@ -82,7 +79,7 @@ while True:
             handle_mention(mention)
             id = mention.id
             #Favorites tweet as not to reply
-            #twitter_API.create_favorite(id = id)
+            twitter_API.create_favorite(id = id)
             print(mention.text)
             print(mention.id)
     time.sleep(120)
