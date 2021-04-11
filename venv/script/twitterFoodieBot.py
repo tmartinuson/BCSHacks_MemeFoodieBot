@@ -23,7 +23,7 @@ def mention_followers():
 
 def handle_mention(mention_object):
     #TODO Pull the text from the mention_object and store it into a string to be used for a google query
-    query = mention_object.text[15:]
+    query = mention_object.text[12:]
     print(query)
 
 
@@ -45,17 +45,17 @@ def handle_mention(mention_object):
         #Pick a random restaurant twitter
         restaurant_twitter_handle = j + ""
         restaurant_url = j
-        #print(j)
+        print(j)
 
     restaurant_twitter_handle = restaurant_twitter_handle[20:].split("?")[0]
 
-    #print(restaurant_twitter_handle)
+    print(restaurant_twitter_handle)
     print(restaurant_url)
 
     user = twitter_API.get_user(screen_name = restaurant_twitter_handle)
     best_tweet_of_user = twitter_API.user_timeline(user_id = user.id,count = 1)[0]
-    #print(user)
-    #print(best_tweet_of_user)
+    print(user)
+    print(best_tweet_of_user)
 
 
     #TODO Call twitter_API to reply to the mention handle with the URL of the restaurant
