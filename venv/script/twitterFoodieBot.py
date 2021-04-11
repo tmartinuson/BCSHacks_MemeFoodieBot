@@ -23,7 +23,10 @@ def mention_followers():
 
 def handle_mention(mention_object):
     #TODO Pull the text from the mention_object and store it into a string to be used for a google query
-    query = mention_object.text[15:]
+    api = tweepy.API(auth)
+    id = mention_object.id
+    status = api.get_status(id)
+    query = mention_object.text[15:] + " " + str(status.place)
     print(query)
 
 
